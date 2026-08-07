@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Awesome 榜单中文速查表 · 677 个精选资源列表</title>
+<style>
+  :root{
+    --bg:#f7f7f5; --card:#fff; --line:#e5e3dd; --text:#1f1e1c; --muted:#75726b;
+    --accent:#3b5bdb; --accent-soft:#eef1fd; --chip:#f0efeb; --hi:#fff2b8;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);
+    font:15px/1.6 -apple-system,BlinkMacSystemFont,"SF Pro SC","PingFang SC","Helvetica Neue",Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  header{background:var(--card);border-bottom:1px solid var(--line);padding:22px 28px 0}
+  .wrap{max-width:1320px;margin:0 auto}
+  h1{margin:0 0 6px;font-size:22px;letter-spacing:-.01em}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:16px}
+  .sub b{color:var(--text);font-weight:600}
+
+  .controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding-bottom:14px}
+  #q{flex:1 1 300px;min-width:240px;padding:9px 13px;border:1px solid var(--line);border-radius:8px;
+     background:var(--bg);font-size:14px;color:var(--text);outline:none}
+  #q:focus{border-color:var(--accent);background:#fff}
+  .btn{padding:8px 12px;border:1px solid var(--line);background:var(--bg);border-radius:8px;
+       font-size:13px;color:var(--muted);cursor:pointer}
+  .btn:hover{background:#efeee9}
+  .stat{font-size:13px;color:var(--muted);white-space:nowrap}
+  .stat b{color:var(--text)}
+
+  .chips{display:flex;gap:7px;flex-wrap:wrap;padding:0 0 16px}
+  .chip{padding:5px 11px;border-radius:99px;border:1px solid var(--line);background:var(--chip);
+        font-size:12.5px;color:var(--muted);cursor:pointer;user-select:none}
+  .chip:hover{border-color:#c9c6bd}
+  .chip.on{background:var(--accent);border-color:var(--accent);color:#fff}
+  .chip .k{opacity:.6;margin-left:5px;font-variant-numeric:tabular-nums}
+
+  main{max-width:1320px;margin:0 auto;padding:20px 28px 60px}
+  table{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);
+        border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  thead th{position:sticky;top:0;z-index:2;background:#fbfbf9;border-bottom:1px solid var(--line);
+    text-align:left;font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.04em;
+    padding:11px 14px;white-space:nowrap}
+  tbody td{border-top:1px solid #f0efec;padding:11px 14px;vertical-align:top}
+  tbody tr:first-child td{border-top:none}
+  tbody tr:hover{background:#fcfbf7}
+  .c-idx{width:46px;color:#b3afa5;font-size:12px;font-variant-numeric:tabular-nums;text-align:right}
+  .c-name{width:200px;font-weight:600}
+  .c-name .grp{display:block;font-weight:400;font-size:11.5px;color:#a29e94;margin-top:1px}
+  .c-cat{width:130px}
+  .c-cat span{display:inline-block;padding:2px 8px;border-radius:6px;background:var(--accent-soft);
+    color:#3f51b5;font-size:11.5px;white-space:nowrap}
+  .c-d{width:38%;color:#3d3b37}
+  .c-s{color:var(--muted)}
+  mark{background:var(--hi);color:inherit;border-radius:2px;padding:0 1px}
+
+  .empty{padding:60px 20px;text-align:center;color:var(--muted)}
+  footer{max-width:1320px;margin:0 auto;padding:0 28px 40px;color:#a29e94;font-size:12px}
+
+  @media(max-width:900px){
+    thead{display:none}
+    table,tbody,tr,td{display:block;width:auto}
+    table{border:none;background:transparent}
+    tbody tr{background:var(--card);border:1px solid var(--line);border-radius:10px;margin-bottom:10px;padding:6px 4px}
+    tbody td{border:none;padding:5px 12px}
+    .c-idx{display:none}
+    .c-name{width:auto;font-size:16px}
+    .c-cat,.c-d,.c-s{width:auto}
+    .c-s::before{content:"用途：";color:#b3afa5}
+    header,main,footer{padding-left:16px;padding-right:16px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <h1>Awesome 榜单中文速查表</h1>
+    <div class="sub">
+      整理自 <a href="https://github.com/sindresorhus/awesome" target="_blank" rel="noopener">sindresorhus/awesome</a>
+      ，共 <b>677</b> 个精选资源列表、<b>26</b> 个分类。项目名可直接点进原仓库。内容与用途为中文补写。
+    </div>
+    <div class="controls">
+      <input id="q" type="search" placeholder="搜索项目名、分类、内容或用途，例如 Rust / 爬虫 / 面试" autocomplete="off">
+      <button class="btn" id="reset">重置</button>
+      <span class="stat" id="stat"></span>
+    </div>
+    <div class="chips" id="chips"></div>
+  </div>
+</header>
+
+<main>
+  <table>
+    <thead><tr>
+      <th class="c-idx">#</th>
+      <th class="c-name">项目名</th>
+      <th class="c-cat">分类</th>
+      <th class="c-d">内容是什么</th>
+      <th class="c-s">有什么用</th>
+    </tr></thead>
+    <tbody id="tb"></tbody>
+  </table>
+  <div class="empty" id="empty" hidden>没有匹配的项目，换个关键词试试。</div>
+</main>
+
+<footer>数据抓取自 awesome 仓库 readme.md（2026-08-07）。原榜单只有项目名和英文一句话，中文的"内容是什么/有什么用"两列是补写的解读，仅供快速筛选参考。</footer>
+
+<script src="data.js"></script>
+<script>
+const tb = document.getElementById('tb');
+const q = document.getElementById('q');
+const chipsEl = document.getElementById('chips');
+const statEl = document.getElementById('stat');
+const emptyEl = document.getElementById('empty');
+let active = null;
+
+const counts = {};
+DATA.forEach(d => counts[d.c] = (counts[d.c]||0)+1);
+
+function buildChips(){
+  const all = document.createElement('div');
+  all.className = 'chip on'; all.dataset.cat = '';
+  all.innerHTML = '全部<span class="k">' + DATA.length + '</span>';
+  chipsEl.appendChild(all);
+  CATS.forEach(c => {
+    const el = document.createElement('div');
+    el.className = 'chip'; el.dataset.cat = c;
+    el.innerHTML = c + '<span class="k">' + counts[c] + '</span>';
+    chipsEl.appendChild(el);
+  });
+  chipsEl.addEventListener('click', e => {
+    const chip = e.target.closest('.chip'); if(!chip) return;
+    active = chip.dataset.cat || null;
+    [...chipsEl.children].forEach(c => c.classList.toggle('on', c === chip));
+    render();
+  });
+}
+
+const esc = s => s.replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function hl(s, kw){
+  s = esc(s);
+  if(!kw) return s;
+  const re = new RegExp('(' + kw.replace(/[.*+?^${}()|[\]\\]/g,'\\$&') + ')', 'gi');
+  return s.replace(re, '<mark>$1</mark>');
+}
+
+function render(){
+  const kw = q.value.trim();
+  const lk = kw.toLowerCase();
+  const rows = DATA.filter(d => {
+    if(active && d.c !== active) return false;
+    if(!lk) return true;
+    return (d.n + ' ' + d.g + ' ' + d.c + ' ' + d.d + ' ' + d.s).toLowerCase().includes(lk);
+  });
+  tb.innerHTML = rows.map((d,i) =>
+    '<tr>' +
+      '<td class="c-idx">' + (i+1) + '</td>' +
+      '<td class="c-name"><a href="' + d.u + '" target="_blank" rel="noopener">' + hl(d.n,kw) + '</a>' +
+        (d.g ? '<span class="grp">' + hl(d.g,kw) + '</span>' : '') + '</td>' +
+      '<td class="c-cat"><span>' + hl(d.c,kw) + '</span></td>' +
+      '<td class="c-d">' + hl(d.d,kw) + '</td>' +
+      '<td class="c-s">' + hl(d.s,kw) + '</td>' +
+    '</tr>').join('');
+  statEl.innerHTML = '当前显示 <b>' + rows.length + '</b> / ' + DATA.length + ' 条';
+  emptyEl.hidden = rows.length > 0;
+}
+
+let t;
+q.addEventListener('input', () => { clearTimeout(t); t = setTimeout(render, 120); });
+document.getElementById('reset').addEventListener('click', () => {
+  q.value = ''; active = null;
+  [...chipsEl.children].forEach((c,i) => c.classList.toggle('on', i === 0));
+  render(); q.focus();
+});
+document.addEventListener('keydown', e => {
+  if(e.key === '/' && document.activeElement !== q){ e.preventDefault(); q.focus(); }
+});
+
+buildChips();
+render();
+</script>
+</body>
+</html>
